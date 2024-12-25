@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Amiri', serif;
+    color: #333;
+    direction: rtl;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffcc00;
+    padding: 15px;
+}
+
+.navbar .logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.home-section {
+    background: url('../media/Untitled.png') no-repeat center center/cover;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home-content h1 {
+    font-size: 60px;
+    font-family: 'Amiri', serif;
+    margin: 10px;
+}
+
+.home-content p {
+    font-size: 25px;
+    margin: 10px;
+}
+
+.home-content .btn {
+    background-color: #ffcc00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+.home-content .btn:hover {
+    background-color: #e6b800;
+}
+
+.services {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 45px;
+    color: #ffcc00;
+    font-family: 'Amiri', serif;
+}
+
+.service-item {
+    display: inline-block;
+    width: 30%;
+    padding: 10px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.service-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.order-btn {
+    background-color: #ffcc00;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #e6b800;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 8px;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.about {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member h3 {
+    font-size: 24px;
+    color: #333;
+    font-family: 'Amiri', serif;
+}
+
+.team-member ul {
+    list-style: none;
+}
+
+.testimonials {
+    background-color: #f1f1f1;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 40px;
+    color: #ffcc00;
+    font-family: 'Amiri', serif;
+}
+
+.testimonial-item {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 70%;
+}
+
+.testimonial-item p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.testimonial-item h4 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact a {
+    color: #ffcc00;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+}
