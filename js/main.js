@@ -5,24 +5,29 @@ const rightIcon = document.getElementById('right-icon');
 let startX = 0;
 let currentX = 0;
 let isDragging = false;
+let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-dragImage.addEventListener('mousedown', (e) => {
-    startX = e.clientX;
+// إضافة الأحداث المناسبة بناءً على الجهاز
+const startEvent = isTouchDevice ? 'touchstart' : 'mousedown';
+const moveEvent = isTouchDevice ? 'touchmove' : 'mousemove';
+const endEvent = isTouchDevice ? 'touchend' : 'mouseup';
+
+dragImage.addEventListener(startEvent, (e) => {
+    startX = isTouchDevice ? e.touches[0].clientX : e.clientX;
     isDragging = true;
 
-    // عند السحب: إظهار الأيقونات
     leftIcon.style.opacity = '1';
     rightIcon.style.opacity = '1';
 
-    const onMouseMove = (event) => {
+    const onMove = (event) => {
         if (!isDragging) return;
 
-        currentX = event.clientX - startX;
+        currentX = (isTouchDevice ? event.touches[0].clientX : event.clientX) - startX;
 
         // تحريك الصورة
         dragImage.style.transform = `translateX(${currentX}px)`;
 
-        // التأثير على الأيقونات أثناء السحب
+        // تأثير على الأيقونات
         if (currentX > 50) {
             rightIcon.style.transform = `translateX(${currentX}px) scale(1.2)`;
             leftIcon.style.transform = 'translateX(-30px) scale(1)';
@@ -41,21 +46,22 @@ dragImage.addEventListener('mousedown', (e) => {
         }
     };
 
-    const onMouseUp = () => {
+    const onEnd = () => {
         isDragging = false;
 
-        // إعادة الصورة إلى مكانها الأصلي
+        // إعادة الصورة إلى مكانها
+        dragImage.style.transition = 'transform 0.3s ease';
         dragImage.style.transform = 'translateX(0)';
-
-        // إعادة الأيقونات إلى وضعها الطبيعي
+        
+        // إعادة الأيقونات
         resetIcons();
 
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
+        document.removeEventListener(moveEvent, onMove);
+        document.removeEventListener(endEvent, onEnd);
     };
 
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+    document.addEventListener(moveEvent, onMove);
+    document.addEventListener(endEvent, onEnd);
 });
 
 function goToPage(direction) {
@@ -69,6 +75,9 @@ function goToPage(direction) {
 }
 
 function resetIcons() {
+    leftIcon.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    rightIcon.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+
     leftIcon.style.transform = 'translateX(-30px) scale(1)';
     rightIcon.style.transform = 'translateX(30px) scale(1)';
     leftIcon.style.opacity = '0.3';
