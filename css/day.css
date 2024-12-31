@@ -1,239 +1,251 @@
-* {
+/* إعدادات عامة */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* اللون الرمادي الفاتح */
+    color: #333; /* النصوص باللون الداكن */
 }
 
-body {
-    font-family: 'Amiri', serif;
-    color: #333;
-    direction: rtl;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffcc00;
-    padding: 15px;
-}
-
-.navbar .logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-}
-
-.navbar ul li {
-    margin: 0 15px;
-}
-
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s, box-shadow 0.3s;
-}
-
-.navbar ul li a:hover {
-    color: #000;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-.home-section {
-    background: url('../media/Untitled.png') no-repeat center center/cover;
-    height: 100vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.home-content h1 {
-    font-size: 60px;
-    font-family: 'Amiri', serif;
-    margin: 10px;
-}
-
-.home-content p {
-    font-size: 25px;
-    margin: 10px;
-}
-
-.home-content .btn {
-    background-color: #ffcc00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    text-decoration: none;
-    font-size: 18px;
-    margin-top: 30px;
-    transition: background-color 0.3s;
-}
-
-.home-content .btn:hover {
-    background-color: #e6b800;
-}
-
-.services {
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.services h2 {
-    font-size: 45px;
-    color: #ffcc00;
-    font-family: 'Amiri', serif;
-}
-
-.service-item {
-    display: inline-block;
-    width: 30%;
-    padding: 10px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
-}
-
-.service-item:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.service-item img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.order-btn {
-    background-color: #ffcc00;
-    color: white;
-    padding: 15px 25px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s;
-}
-
-.order-btn:hover {
-    background-color: #e6b800;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
+/* تخصيص النوافذ المنبثقة (Modal) */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-    border-radius: 8px;
-}
-
-.close-btn {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    float: right;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.about {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px 20px;
     background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
 }
 
-.team-member {
-    text-align: center;
+.modal-header {
+    border-bottom: none;
+    background-color: #f8f9fa;
 }
 
-.team-member h3 {
+.modal-footer {
+    border-top: none;
+    background-color: #f8f9fa;
+}
+
+/* نافبار الصفحة */
+.navbar {
+    background-color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 99999999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-nav {
+    flex-direction: row;
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d4af37; /* الذهبي */
+}
+
+.navbar .navbar-brand {
     font-size: 24px;
     color: #333;
-    font-family: 'Amiri', serif;
+}
+.carousel-inner {
+    border-radius: 10px; /* إضافة حواف مدورة */
 }
 
-.team-member ul {
-    list-style: none;
+.carousel-item img {
+    object-fit: cover; /* لضمان تغطية الصورة بالكامل */
+}
+.mainword{
+    color: #c4962f;
+    font-weight: 800;
+    font-family: monospace;
+}
+/* تنسيق أزرار النموذج */
+button[type="submit"] {
+    background-color: #d4af37; /* اللون الذهبي */
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
 }
 
-.testimonials {
-    background-color: #f1f1f1;
-    padding: 50px 20px;
-    text-align: center;
+button[type="submit"]:hover {
+    background-color: #c4962f; /* تغيير اللون عند التمرير */
 }
 
-.testimonials h2 {
-    font-size: 40px;
-    color: #ffcc00;
-    font-family: 'Amiri', serif;
-}
-
-.testimonial-item {
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 70%;
-}
-
-.testimonial-item p {
+/* تنسيق الفقرات والنصوص */
+h2, h3, p {
     font-size: 18px;
-    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.6;
 }
 
-.testimonial-item h4 {
-    font-size: 20px;
-    font-weight: bold;
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
-.contact {
-    text-align: center;
-    padding: 50px 20px;
+/* تنسيق الأيقونات */
+.fas {
+    font-size: 16px;
+    color: #d4af37; /* اللون الذهبي */
 }
 
-.contact a {
-    color: #ffcc00;
-    font-size: 18px;
-    text-decoration: none;
-    margin: 10px;
-}
-
+/* تخصيص الفوتر */
 footer {
+    background-color: #fff;
     text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
+    padding: 30px 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
-    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* تنسيق عرض الخدمة */
+.service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 15px;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.4;
+}
+
+/* تنسيق الآراء */
+#reviews {
+    padding: 50px 0;
+}
+
+.review-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.review-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+.review-card .fas {
+    color: #d4af37;
+}
+
+/* تنسيق الأزرار في المنتصف */
+.centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* تنسيق نموذج تواصل معنا */
+.contact-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #d4af37;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #c4962f;
+}
+
+/* تخصيص شكل الأزرار المتواجدة أسفل الآراء */
+.review-card button {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.review-card button:hover {
+    background-color: #c4962f;
+}
+
+/* التنسيق على الأجهزة المحمولة */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-card, .review-card {
+        margin-bottom: 20px;
+    }
+
+    .service-card img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .centered-button {
+        flex-direction: column;
+    }
 }

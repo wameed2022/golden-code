@@ -1,5 +1,4 @@
 /* إعدادات عامة */
-
 body {
     margin: 0;
     padding: 0;
@@ -8,58 +7,50 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
 /* خلفية الفيديو */
-
 .background-video video {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
     z-index: -1;
 }
 
-
 /* الحاوية */
-
 .container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 70px;
-    /* زيادة المسافة بين الأيقونات */
+    gap: 20px; /* ضبط المسافة بين العناصر */
+    flex-wrap: wrap; /* التأكد من أن العناصر تتكدس عموديًا على الشاشات الصغيرة */
 }
 
-
-/* أيقونات */
-
-.icon {
-    font-size: 50px;
-    /* زيادة حجم الأيقونات */
-    opacity: 0.5;
+/* الحاوية الخاصة بالأيقونات والأسهم */
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* المسافة بين الأيقونة والسهم */
+    font-size: 40px;
+    opacity: 0.8;
     transition: transform 0.3s ease, opacity 0.3s ease;
     cursor: pointer;
 }
 
 .left-icon {
-    transform: translateX(-80px);
-    /* زيادة المسافة بين الأيقونات */
+    transform: translateX(-30px); /* ضبط المسافة بين القمر والصورة */
 }
 
 .right-icon {
-    transform: translateX(80px);
-    /* زيادة المسافة بين الأيقونات */
+    transform: translateX(30px); /* ضبط المسافة بين الشمس والصورة */
 }
 
-
 /* التأثير عند السحب */
-
 .container img {
-    width: 180px;
-    /* تكبير الصورة */
+    width: 180px; /* حجم الصورة */
     height: 180px;
     cursor: grab;
     transition: transform 0.3s ease;
@@ -69,43 +60,68 @@ body {
     cursor: grabbing;
 }
 
-.container img.dragging+.icon {
-    opacity: 1;
-}
-
-
-/* تحسين الاستجابة للصفحة */
-
+/* تحسين الاستجابة للصفحة على الشاشات الصغيرة */
 @media (max-width: 768px) {
-    .container {
-        gap: 40px;
-        /* تقليل المسافة بين الأيقونات */
-        flex-direction: column;
-        /* جعل العناصر عمودية لتناسب الهواتف */
+    .icon-wrapper {
+        font-size: 30px; /* تصغير حجم الأيقونات والأسهم على الشاشات الصغيرة */
     }
-    .icon {
-        font-size: 40px;
-        /* تقليل حجم الأيقونات على الشاشات الصغيرة */
-    }
+
     .container img {
-        width: 150px;
-        /* تصغير حجم الصورة على الشاشات الصغيرة */
+        width: 150px; /* تصغير حجم الصورة على الشاشات الصغيرة */
         height: 150px;
+    }
+
+    /* تعديل وضع الأيقونات في حالة الشاشات الصغيرة */
+    .container {
+        gap: 30px; /* تقليل المسافة بين الأيقونات والصورة */
+    }
+
+    .left-icon, .right-icon {
+        font-size: 35px;
+        opacity: 1; /* زيادة وضوح الأيقونات */
+        transform: none; /* إعادة ضبط المواقع */
+    }
+
+    .icon-wrapper {
+        flex-direction: row; /* ترتيب الأيقونات مع الأسهم بجانبها */
     }
 }
 
 @media (max-width: 576px) {
-    .container {
-        gap: 20px;
-        /* تقليل المسافة بين الأيقونات أكثر على الشاشات الصغيرة جدا */
+    .icon-wrapper {
+        font-size: 25px; /* تقليل حجم الأيقونات والأسهم بشكل أكبر */
     }
-    .icon {
-        font-size: 35px;
-        /* تقليل حجم الأيقونات بشكل أكبر */
-    }
+
     .container img {
-        width: 120px;
-        /* تصغير حجم الصورة على الشاشات الصغيرة جدا */
+        width: 120px; /* تصغير حجم الصورة أكثر */
         height: 120px;
+    }
+
+    /* تعديل وضع الأيقونات في حالة الشاشات الصغيرة جدا */
+    .container {
+        gap: 20px; /* تقليل المسافة بين الأيقونات والصورة أكثر */
+    }
+
+    .left-icon, .right-icon {
+        font-size: 30px;
+    }
+
+    .icon-wrapper {
+        flex-direction: row; /* ترتيب الأيقونات مع الأسهم بجانبها */
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        gap: 15px; /* تقليل المسافة بين الأيقونات والصورة أكثر */
+    }
+
+    .container img {
+        width: 100px; /* تصغير الصورة على الشاشات الصغيرة جدا */
+        height: 100px;
+    }
+
+    .icon-wrapper {
+        font-size: 20px; /* تصغير حجم الأيقونات والأسهم أكثر */
     }
 }
